@@ -4,92 +4,203 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV Wulan Novia Karrennina</title>
-    <link rel="stylesheet" href="cv-style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #d1d8e0;
+        }
+        .cv-container {
+            width: 210mm;
+            min-height: 297mm;
+            background-color: #f0f4f8;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        /* Geometric Elements */
+        .geo-top {
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: #103d61;
+            transform: rotate(45deg);
+            z-index: 0;
+        }
+        .geo-dots {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100px;
+            height: 100px;
+            background-image: radial-gradient(#103d61 2px, transparent 2px);
+            background-size: 15px 15px;
+            opacity: 0.2;
+        }
+        .header-box {
+            background-color: #103d61;
+            color: white;
+            border-radius: 12px;
+            position: relative;
+            z-index: 10;
+        }
+        .section-title {
+            background-color: #103d61;
+            color: white;
+            padding: 4px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        .profile-img-container {
+            width: 140px;
+            height: 180px;
+            background-color: #cc0000; /* Merah seperti background foto formal */
+            border: 4px solid white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        @media print {
+            body { background: none; padding: 0; }
+            .cv-container { box-shadow: none; margin: 0; }
+        }
+    </style>
 </head>
-<body>
+<body class="flex justify-center py-10">
 
-    <div class="cv-page">
-        <div class="geo-top-left"></div>
-        <div class="geo-top-right"></div>
+    <div class="cv-container p-12">
+        <div class="geo-top"></div>
+        <div class="geo-dots"></div>
 
-        <header class="cv-header">
-            <div class="profile-frame">
-                <img src="foto-profil.jpg" alt="Wulan Novia">
+        <!-- Header -->
+        <header class="header-box p-8 flex items-center mb-10">
+            <div class="profile-img-container flex-shrink-0 shadow-lg">
+                <!-- Ganti URL ini dengan foto Anda jika ingin digunakan secara lokal -->
+                <img src="https://via.placeholder.com/140x180" alt="Wulan Novia">
             </div>
-            <div class="header-info">
-                <h1>Wulan Novia Karrennina</h1>
-                <h2>LULUSAN BARU</h2>
-                <div class="contact-links">
-                    <p>📞 +62 813-8287-5453</p>
-                    <p>✉️ wulan.novia2007@gmail.com</p>
+            <div class="ml-8">
+                <h1 class="text-3xl font-bold tracking-tight">WULAN NOVIA KARRENNINA</h1>
+                <p class="text-xl font-light tracking-[0.2em] mt-1 text-blue-200">LULUSAN BARU</p>
+                <div class="mt-4 space-y-1 text-sm opacity-90">
+                    <p class="flex items-center">
+                        <span class="mr-2">📞</span> +62 813-8287-5453
+                    </p>
+                    <p class="flex items-center">
+                        <span class="mr-2">✉️</span> wulan.novia2007@gmail.com
+                    </p>
                 </div>
             </div>
         </header>
 
-        <main class="cv-content">
-            <div class="left-col">
-                
-                <section>
-                    <h3 class="section-title">DATA PRIBADI</h3>
-                    <table class="data-table">
-                        <tr><td>Nama</td><td>: Wulan Novia Karrennina</td></tr>
-                        <tr><td>Umur</td><td>: 18 tahun</td></tr>
-                        <tr><td>No HP</td><td>: +62 813-8287-5453</td></tr>
-                        <tr><td>Email</td><td>: wulan.novia2007@gmail.com</td></tr>
-                        <tr><td>Citizenship</td><td>: Indonesia</td></tr>
-                        <tr><td>Agama</td><td>: Islam</td></tr>
-                        <tr><td>Status</td><td>: Single</td></tr>
+        <div class="grid grid-cols-12 gap-10 relative z-10">
+            <!-- Kolom Kiri -->
+            <div class="col-span-7">
+                <!-- Data Pribadi -->
+                <section class="mb-8">
+                    <div class="section-title">Data Pribadi</div>
+                    <table class="w-full text-sm text-gray-700">
+                        <tr class="leading-7">
+                            <td class="w-32 font-semibold text-blue-900">Nama</td>
+                            <td>: Wulan Novia Karrennina</td>
+                        </tr>
+                        <tr class="leading-7">
+                            <td class="font-semibold text-blue-900">Umur</td>
+                            <td>: 18 Tahun</td>
+                        </tr>
+                        <tr class="leading-7">
+                            <td class="font-semibold text-blue-900">No Handphone</td>
+                            <td>: +62 813-8287-5453</td>
+                        </tr>
+                        <tr class="leading-7">
+                            <td class="font-semibold text-blue-900">Email</td>
+                            <td>: wulan.novia2007@gmail.com</td>
+                        </tr>
+                        <tr class="leading-7">
+                            <td class="font-semibold text-blue-900">Citizenship</td>
+                            <td>: Indonesia</td>
+                        </tr>
+                        <tr class="leading-7">
+                            <td class="font-semibold text-blue-900">Agama</td>
+                            <td>: Islam</td>
+                        </tr>
+                        <tr class="leading-7">
+                            <td class="font-semibold text-blue-900">Status</td>
+                            <td>: Single</td>
+                        </tr>
                     </table>
                 </section>
 
-                <section>
-                    <h3 class="section-title">PENDIDIKAN</h3>
-                    <div class="edu-item">
-                        <span>SMK Al-Irsyad</span>
-                        <span class="year">: 2023-2026</span>
-                    </div>
-                    <div class="edu-item">
-                        <span>SMP Patriot Bangsa</span>
-                        <span class="year">: 2020-2023</span>
-                    </div>
-                    <div class="edu-item">
-                        <span>SD Sukamaju</span>
-                        <span class="year">: 2014-2020</span>
+                <!-- Pendidikan -->
+                <section class="mb-8">
+                    <div class="section-title">Pendidikan</div>
+                    <div class="space-y-2 text-sm text-gray-700">
+                        <div class="flex justify-between">
+                            <span class="font-bold">SMK Al-Irsyad</span>
+                            <span>: 2023 - 2026</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="font-bold">SMP Patriot Bangsa</span>
+                            <span>: 2020 - 2023</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="font-bold">SD Sukamaju</span>
+                            <span>: 2014 - 2020</span>
+                        </div>
                     </div>
                 </section>
 
-                <section>
-                    <h3 class="section-title">SKILL</h3>
-                    <ul class="skill-list">
-                        <li>Filing letters</li>
-                        <li>move data</li>
-                        <li>make a letter</li>
+                <!-- Keahlian -->
+                <section class="mb-8">
+                    <div class="section-title">Skill</div>
+                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-1 ml-2">
+                        <li>Filing letters (Pengarsipan)</li>
+                        <li>Move data (Input/Migrasi Data)</li>
+                        <li>Make a letter (Korespondensi Bisnis)</li>
+                        <li>Microsoft Office (Word, Excel)</li>
                     </ul>
                 </section>
 
+                <!-- Pengalaman -->
                 <section>
-                    <h3 class="section-title">EXPERIENCE</h3>
-                    <div class="exp-item">
-                        <p><strong>Kantor Urusan Agama (KUA) Haurgeulis</strong></p>
-                        <p>(Internship Program, July-sept 2025)</p>
+                    <div class="section-title">Experience</div>
+                    <div class="text-sm text-gray-700">
+                        <p class="font-bold text-blue-900">Kantor Urusan Agama (KUA) Haurgeulis</p>
+                        <p class="italic">(Internship Program, July - Sept 2025)</p>
+                        <p class="mt-2 text-xs leading-relaxed text-gray-500">Membantu administrasi perkantoran, pelayanan tamu, dan pengelolaan dokumen resmi.</p>
                     </div>
                 </section>
             </div>
 
-            <div class="right-col">
-                <section>
-                    <h3 class="section-title right">TENTANG SAYA</h3>
-                    <p class="about-text">
-                        Saya mahasiswa manajemen perkantoran dengan pengalaman dalam penulisan surat, pekerjaan resepsionis, pengarsipan, dan mengelola kas kecil.
+            <!-- Kolom Kanan -->
+            <div class="col-span-5">
+                <section class="text-right">
+                    <div class="section-title">Tentang Saya</div>
+                    <p class="text-sm text-gray-700 leading-relaxed text-justify">
+                        Saya mahasiswa manajemen perkantoran dengan pengalaman dalam penulisan surat, pekerjaan resepsionis, pengarsipan, dan mengelola kas kecil. Saya adalah pribadi yang disiplin, teliti, dan siap memberikan kontribusi terbaik bagi perusahaan.
                     </p>
                 </section>
-            </div>
-        </main>
 
-        <div class="geo-bottom-left"></div>
-        <div class="geo-bottom-right"></div>
+                <!-- Geometric Decoration Bawah -->
+                <div class="mt-20 opacity-10">
+                    <div class="w-full h-32 bg-blue-900 rounded-l-full"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Decoration -->
+        <div class="absolute bottom-0 right-0 w-32 h-8 bg-blue-900 opacity-20"></div>
     </div>
 
 </body>
-</html>
+    </html>
