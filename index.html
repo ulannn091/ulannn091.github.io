@@ -3,204 +3,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV Wulan Novia Karrennina</title>
+    <title>Portofolio | Wulan Novia Karrennina</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #d1d8e0;
-        }
-        .cv-container {
-            width: 210mm;
-            min-height: 297mm;
-            background-color: #f0f4f8;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
-        /* Geometric Elements */
-        .geo-top {
-            position: absolute;
-            top: -50px;
-            right: -50px;
-            width: 200px;
-            height: 200px;
-            background: #103d61;
-            transform: rotate(45deg);
-            z-index: 0;
-        }
-        .geo-dots {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 100px;
-            height: 100px;
-            background-image: radial-gradient(#103d61 2px, transparent 2px);
-            background-size: 15px 15px;
-            opacity: 0.2;
-        }
-        .header-box {
+        body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        .bg-navy { background-color: #103d61; }
+        .text-navy { color: #103d61; }
+        .border-navy { border-color: #103d61; }
+        .bg-light-blue { background-color: #eef2ff; }
+        
+        .hero-pattern {
             background-color: #103d61;
-            color: white;
-            border-radius: 12px;
-            position: relative;
-            z-index: 10;
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+            background-size: 24px 24px;
         }
-        .section-title {
-            background-color: #103d61;
-            color: white;
-            padding: 4px 20px;
-            border-radius: 20px;
-            display: inline-block;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-        .profile-img-container {
-            width: 140px;
-            height: 180px;
-            background-color: #cc0000; /* Merah seperti background foto formal */
-            border: 4px solid white;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        .profile-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        @media print {
-            body { background: none; padding: 0; }
-            .cv-container { box-shadow: none; margin: 0; }
+
+        .skill-card:hover { transform: translateY(-5px); transition: 0.3s; }
+        
+        /* Chat UI Styles */
+        #ai-chat-window {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
-<body class="flex justify-center py-10">
+<body class="bg-gray-50 text-gray-800">
 
-    <div class="cv-container p-12">
-        <div class="geo-top"></div>
-        <div class="geo-dots"></div>
-
-        <!-- Header -->
-        <header class="header-box p-8 flex items-center mb-10">
-            <div class="profile-img-container flex-shrink-0 shadow-lg">
-                <!-- Ganti URL ini dengan foto Anda jika ingin digunakan secara lokal -->
-                <img src="https://via.placeholder.com/140x180" alt="Wulan Novia">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md shadow-sm">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-navy">WNK.</div>
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="#home" class="hover:text-blue-600 transition">Beranda</a>
+                <a href="#about" class="hover:text-blue-600 transition">Tentang</a>
+                <a href="#skills" class="hover:text-blue-600 transition">Skill</a>
+                <a href="#portfolio" class="hover:text-blue-600 transition">Portofolio</a>
+                <a href="#contact" class="hover:text-blue-600 transition">Kontak</a>
             </div>
-            <div class="ml-8">
-                <h1 class="text-3xl font-bold tracking-tight">WULAN NOVIA KARRENNINA</h1>
-                <p class="text-xl font-light tracking-[0.2em] mt-1 text-blue-200">LULUSAN BARU</p>
-                <div class="mt-4 space-y-1 text-sm opacity-90">
-                    <p class="flex items-center">
-                        <span class="mr-2">📞</span> +62 813-8287-5453
-                    </p>
-                    <p class="flex items-center">
-                        <span class="mr-2">✉️</span> wulan.novia2007@gmail.com
-                    </p>
+            <button onclick="toggleAIChat()" class="bg-navy text-white px-5 py-2 rounded-full text-sm font-semibold flex items-center gap-2 hover:bg-opacity-90 transition">
+                <span>Tanya AI</span> ✨
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-pattern min-h-screen flex items-center pt-20">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-white space-y-6">
+                <h2 class="text-blue-300 font-semibold tracking-widest uppercase">Lulusan Baru</h2>
+                <h1 class="text-5xl md:text-7xl font-bold leading-tight">Wulan Novia Karrennina</h1>
+                <p class="text-lg text-gray-300 max-w-lg">
+                    Spesialis Manajemen Perkantoran yang berdedikasi tinggi dengan keahlian dalam administrasi digital, kearsipan, dan pelayanan prima.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#portfolio" class="bg-white text-navy px-8 py-3 rounded-lg font-bold hover:bg-blue-50 transition">Lihat Karya</a>
+                    <a href="#contact" class="border-2 border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white/10 transition">Hubungi Saya</a>
                 </div>
             </div>
-        </header>
-
-        <div class="grid grid-cols-12 gap-10 relative z-10">
-            <!-- Kolom Kiri -->
-            <div class="col-span-7">
-                <!-- Data Pribadi -->
-                <section class="mb-8">
-                    <div class="section-title">Data Pribadi</div>
-                    <table class="w-full text-sm text-gray-700">
-                        <tr class="leading-7">
-                            <td class="w-32 font-semibold text-blue-900">Nama</td>
-                            <td>: Wulan Novia Karrennina</td>
-                        </tr>
-                        <tr class="leading-7">
-                            <td class="font-semibold text-blue-900">Umur</td>
-                            <td>: 18 Tahun</td>
-                        </tr>
-                        <tr class="leading-7">
-                            <td class="font-semibold text-blue-900">No Handphone</td>
-                            <td>: +62 813-8287-5453</td>
-                        </tr>
-                        <tr class="leading-7">
-                            <td class="font-semibold text-blue-900">Email</td>
-                            <td>: wulan.novia2007@gmail.com</td>
-                        </tr>
-                        <tr class="leading-7">
-                            <td class="font-semibold text-blue-900">Citizenship</td>
-                            <td>: Indonesia</td>
-                        </tr>
-                        <tr class="leading-7">
-                            <td class="font-semibold text-blue-900">Agama</td>
-                            <td>: Islam</td>
-                        </tr>
-                        <tr class="leading-7">
-                            <td class="font-semibold text-blue-900">Status</td>
-                            <td>: Single</td>
-                        </tr>
-                    </table>
-                </section>
-
-                <!-- Pendidikan -->
-                <section class="mb-8">
-                    <div class="section-title">Pendidikan</div>
-                    <div class="space-y-2 text-sm text-gray-700">
-                        <div class="flex justify-between">
-                            <span class="font-bold">SMK Al-Irsyad</span>
-                            <span>: 2023 - 2026</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="font-bold">SMP Patriot Bangsa</span>
-                            <span>: 2020 - 2023</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span class="font-bold">SD Sukamaju</span>
-                            <span>: 2014 - 2020</span>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Keahlian -->
-                <section class="mb-8">
-                    <div class="section-title">Skill</div>
-                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-1 ml-2">
-                        <li>Filing letters (Pengarsipan)</li>
-                        <li>Move data (Input/Migrasi Data)</li>
-                        <li>Make a letter (Korespondensi Bisnis)</li>
-                        <li>Microsoft Office (Word, Excel)</li>
-                    </ul>
-                </section>
-
-                <!-- Pengalaman -->
-                <section>
-                    <div class="section-title">Experience</div>
-                    <div class="text-sm text-gray-700">
-                        <p class="font-bold text-blue-900">Kantor Urusan Agama (KUA) Haurgeulis</p>
-                        <p class="italic">(Internship Program, July - Sept 2025)</p>
-                        <p class="mt-2 text-xs leading-relaxed text-gray-500">Membantu administrasi perkantoran, pelayanan tamu, dan pengelolaan dokumen resmi.</p>
-                    </div>
-                </section>
-            </div>
-
-            <!-- Kolom Kanan -->
-            <div class="col-span-5">
-                <section class="text-right">
-                    <div class="section-title">Tentang Saya</div>
-                    <p class="text-sm text-gray-700 leading-relaxed text-justify">
-                        Saya mahasiswa manajemen perkantoran dengan pengalaman dalam penulisan surat, pekerjaan resepsionis, pengarsipan, dan mengelola kas kecil. Saya adalah pribadi yang disiplin, teliti, dan siap memberikan kontribusi terbaik bagi perusahaan.
-                    </p>
-                </section>
-
-                <!-- Geometric Decoration Bawah -->
-                <div class="mt-20 opacity-10">
-                    <div class="w-full h-32 bg-blue-900 rounded-l-full"></div>
+            <div class="flex justify-center relative">
+                <div class="w-72 h-96 bg-red-600 rounded-2xl border-8 border-white shadow-2xl rotate-3 overflow-hidden">
+                    <img src="https://via.placeholder.com/300x400" alt="Foto Wulan Novia" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg hidden md:block">
+                    <p class="text-navy font-bold text-xl">18+</p>
+                    <p class="text-gray-500 text-xs uppercase font-semibold">Tahun Usia</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Footer Decoration -->
-        <div class="absolute bottom-0 right-0 w-32 h-8 bg-blue-900 opacity-20"></div>
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-6 text-center space-y-8">
+            <h2 class="text-3xl font-bold text-navy">Tentang Saya</h2>
+            <div class="h-1 w-20 bg-navy mx-auto"></div>
+            <p class="text-lg text-gray-600 leading-relaxed">
+                Saya adalah mahasiswa Manajemen Perkantoran yang memiliki minat besar dalam dunia administrasi dan operasional bisnis. Selama masa pendidikan dan magang di KUA Haurgeulis, saya telah mengasah kemampuan dalam penulisan surat profesional, manajemen data, hingga pelayanan tamu. Saya percaya bahwa ketelitian dan pengorganisasian yang baik adalah kunci kesuksesan sebuah organisasi.
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 bg-light-blue">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-navy text-center mb-16">Keahlian Utama</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Skill 1 -->
+                <div class="skill-card bg-white p-8 rounded-2xl shadow-sm border-b-4 border-navy">
+                    <div class="text-4xl mb-4">📄</div>
+                    <h3 class="font-bold text-xl mb-2">Administrasi Surat</h3>
+                    <p class="text-gray-500 text-sm">Pembuatan surat niaga, dinas, dan pengarsipan digital yang rapi.</p>
+                </div>
+                <!-- Skill 2 -->
+                <div class="skill-card bg-white p-8 rounded-2xl shadow-sm border-b-4 border-navy">
+                    <div class="text-4xl mb-4">💻</div>
+                    <h3 class="font-bold text-xl mb-2">Microsoft Office</h3>
+                    <p class="text-gray-500 text-sm">Mahir dalam pengolahan data Excel, dokumen Word, dan presentasi PPT.</p>
+                </div>
+                <!-- Skill 3 -->
+                <div class="skill-card bg-white p-8 rounded-2xl shadow-sm border-b-4 border-navy">
+                    <div class="text-4xl mb-4">🤝</div>
+                    <h3 class="font-bold text-xl mb-2">Public Relation</h3>
+                    <p class="text-gray-500 text-sm">Kemampuan komunikasi efektif dan pelayanan prima (Customer Service).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Gallery -->
+    <section id="portfolio" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+                <div>
+                    <h2 class="text-3xl font-bold text-navy">Karya & Proyek</h2>
+                    <p class="text-gray-500 mt-2">Beberapa hasil pekerjaan dan desain saya.</p>
+                </div>
+                <div class="flex gap-2">
+                    <span class="px-4 py-1 bg-navy text-white text-xs rounded-full">Semua</span>
+                    <span class="px-4 py-1 bg-gray-100 text-gray-500 text-xs rounded-full">Desain</span>
+                    <span class="px-4 py-1 bg-gray-100 text-gray-500 text-xs rounded-full">Dokumen</span>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Item 1: Boba Project -->
+                <div class="group relative overflow-hidden rounded-2xl bg-gray-100 aspect-square">
+                    <img src="https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?auto=format&fit=crop&q=80&w=500" alt="Proyek Boba" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy to-transparent opacity-0 group-hover:opacity-90 transition duration-300 flex flex-col justify-end p-6">
+                        <h4 class="text-white font-bold text-lg">Landing Page Boba</h4>
+                        <p class="text-blue-200 text-sm">Desain Website & Brand Identity</p>
+                    </div>
+                </div>
+                <!-- Item 2: CV Design -->
+                <div class="group relative overflow-hidden rounded-2xl bg-gray-100 aspect-square">
+                    <img src="https://via.placeholder.com/500?text=Resume+Design" alt="Desain CV" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy to-transparent opacity-0 group-hover:opacity-90 transition duration-300 flex flex-col justify-end p-6">
+                        <h4 class="text-white font-bold text-lg">Modern Resume</h4>
+                        <p class="text-blue-200 text-sm">Personal Branding & Layouting</p>
+                    </div>
+                </div>
+                <!-- Item 3: Admin Work -->
+                <div class="group relative overflow-hidden rounded-2xl bg-gray-100 aspect-square">
+                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=500" alt="Administrasi" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navy to-transparent opacity-0 group-hover:opacity-90 transition duration-300 flex flex-col justify-end p-6">
+                        <h4 class="text-white font-bold text-lg">Arsip Digital KUA</h4>
+                        <p class="text-blue-200 text-sm">Manajemen Dokumen & Data</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chat Panel (Hidden by default) -->
+    <div id="ai-chat-container" class="fixed bottom-6 right-6 z-[60] w-80 md:w-96 hidden">
+        <div id="ai-chat-window" class="bg-white rounded-2xl overflow-hidden flex flex-col h-[500px] border border-gray-200">
+            <!-- Header -->
+            <div class="bg-navy p-4 flex justify-between items-center text-white">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-blue-400 rounded-full flex items-center justify-center font-bold">W</div>
+                    <div>
+                        <p class="text-xs font-bold">Wulan AI Assistant</p>
+                        <p class="text-[10px] opacity-80">Online | Powered by Gemini</p>
+                    </div>
+                </div>
+                <button onclick="toggleAIChat()" class="text-xl">×</button>
+            </div>
+            <!-- Messages -->
+            <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 text-sm">
+                <div class="bg-blue-100 text-navy p-3 rounded-2xl rounded-tl-none max-w-[85%]">
+                    Halo! Saya AI asisten Wulan. Ada yang ingin Anda tanyakan tentang pengalaman atau keahlian Wulan?
+                </div>
+            </div>
+            <!-- Input -->
+            <div class="p-4 bg-white border-t flex gap-2">
+                <input id="user-input" type="text" placeholder="Ketik pertanyaan..." class="flex-1 bg-gray-100 px-4 py-2 rounded-full text-sm outline-none focus:ring-2 focus:ring-navy">
+                <button onclick="sendMessage()" class="bg-navy text-white p-2 rounded-full w-10 h-10 flex items-center justify-center hover:opacity-90">
+                    ✈️
+                </button>
+            </div>
+        </div>
     </div>
 
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-navy text-white">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4">Mari Bekerja Sama</h2>
+            <p class="text-blue-200 mb-12">Saya selalu terbuka untuk peluang karir dan diskusi proyek baru.</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-6 bg-white/5 rounded-xl">
+                    <p class="text-sm text-blue-300">Email</p>
+                    <p class="font-bold">wulan.novia2007@gmail.com</p>
+                </div>
+                <div class="p-6 bg-white/5 rounded-xl">
+                    <p class="text-sm text-blue-300">Telepon</p>
+                    <p class="font-bold">+62 813-8287-5453</p>
+                </div>
+                <div class="p-6 bg-white/5 rounded-xl">
+                    <p class="text-sm text-blue-300">Lokasi</p>
+                    <p class="font-bold">Cimahi, Jawa Barat</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 bg-gray-900 text-center text-gray-500 text-sm">
+        <p>&copy; 2026 Wulan Novia Karrennina. Dibuat dengan ✨ dan AI.</p>
+    </footer>
+
+    <script>
+        const apiKey = ""; // Dikelola oleh runtime
+
+        function toggleAIChat() {
+            const container = document.getElementById('ai-chat-container');
+            container.classList.toggle('hidden');
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('user-input');
+            const chatMessages = document.getElementById('chat-messages');
+            const message = input.value.trim();
+            
+            if (!message) return;
+
+            // Add user message to UI
+            const userMsgDiv = document.createElement('div');
+            userMsgDiv.className = "bg-navy text-white p-3 rounded-2xl rounded-tr-none max-w-[85%] ml-auto";
+            userMsgDiv.innerText = message;
+            chatMessages.appendChild(userMsgDiv);
+            input.value = "";
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            // Loading state
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = "text-gray-400 italic text-xs py-2";
+            loadingDiv.innerText = "Wulan AI sedang mengetik...";
+            chatMessages.appendChild(loadingDiv);
+
+            const systemPrompt = `
+                Kamu adalah asisten virtual untuk Wulan Novia Karrennina. 
+                Profil Wulan:
+                - Lulusan Manajemen Perkantoran SMK Al-Irsyad (2023-2026).
+                - Pengalaman Magang di KUA Haurgeulis (Juli-Sept 2025).
+                - Skill: Microsoft Office, Kearsipan, Pembuatan Surat, Resepsionis, Manajemen Kas Kecil.
+                - Karakter: Teliti, disiplin, berdedikasi tinggi.
+                Tugasmu: Menjawab pertanyaan calon HRD atau klien tentang Wulan dengan nada profesional namun ramah dan antusias.
+            `;
+
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: message }] }],
+                        systemInstruction: { parts: [{ text: systemPrompt }] }
+                    })
+                });
+
+                const data = await response.json();
+                const aiResponse = data.candidates?.[0]?.content?.parts?.[0]?.text || "Maaf, saya sedang mengalami kendala teknis.";
+
+                chatMessages.removeChild(loadingDiv);
+
+                const aiMsgDiv = document.createElement('div');
+                aiMsgDiv.className = "bg-blue-100 text-navy p-3 rounded-2xl rounded-tl-none max-w-[85%]";
+                aiMsgDiv.innerText = aiResponse;
+                chatMessages.appendChild(aiMsgDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            } catch (error) {
+                chatMessages.removeChild(loadingDiv);
+                const errorDiv = document.createElement('div');
+                errorDiv.className = "text-red-500 text-xs";
+                errorDiv.innerText = "Gagal terhubung ke AI. Silakan coba lagi.";
+                chatMessages.appendChild(errorDiv);
+            }
+        }
+
+        // Allow 'Enter' key to send message
+        document.getElementById('user-input').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') sendMessage();
+        });
+    </script>
 </body>
     </html>
